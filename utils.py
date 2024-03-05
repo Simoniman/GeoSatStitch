@@ -1,4 +1,5 @@
 import os
+import json
 import patoolib
 from pyresample import create_area_def
 
@@ -158,3 +159,38 @@ def extract_zip_files(directory, zip_formats=('.zip','.bz2')):
             print(f"{zip_file} extracted successfully.")
         except patoolib.util.PatoolError as e:
             print(f"Error: Failed to extract {zip_file}: {e}")
+
+
+def read_credentials_from_config(filename='config.json'):
+    """
+    Reads the consumer_key and consumer_secret from a configuration file.It is required for Meteosat Seviri dataset.
+    https://eoportal.eumetsat.int 
+
+    Args:
+        filename (str): Optional. The filename of the configuration file. Default is 'config.json'.
+
+    Returns:
+        str: The consumer_key.
+        str: The consumer_secret.
+    """
+    try:
+        # Open the config file
+        with open(filename) as config_file:
+            config_data = json.load(config_file)
+    except FileNotFoundError:
+        print(f'Error: Configuration file "{filename}" not found.')
+        return None, None
+    except json.JSONDecodeError:
+        print(f'Error: Failed to parse JSON in configuration file "{filename}".')
+        return None, None
+    
+    # Extract credentials
+    consumer_key = config_data.get('consumer_key')
+    consumer_secret = config_data.get('consumer_secret')
+    
+    if not consumer_key or not consumer_secret:
+        print(f'Error: Missing credentials in configuration file "{filename}".')
+        return None, None
+    
+    return consumer_key, consumer_secret
+

@@ -176,5 +176,9 @@ pyrightconfig.json
 # tmp directories which include data. because these directories are personal. each person will have one by running the code.
 */tmp/
 
+# sometimes we need to make some pieces of code just for test 
+ignore/
 
+# credential files
+personal_config.json
 # End of https://www.toptal.com/developers/gitignore/api/python
