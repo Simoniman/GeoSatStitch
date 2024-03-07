@@ -130,7 +130,7 @@ def geo_area_def(scene):
     return geo_area_def
 
 
-def extract_zip_files(directory, zip_formats=('.zip','.bz2')):
+def extract_zip_files(directory, zip_formats=('.zip', '.bz2')):
     """
     Extracts files with specified zip formats from a directory using patoolib.
 
@@ -154,12 +154,16 @@ def extract_zip_files(directory, zip_formats=('.zip','.bz2')):
     # Extract each zip file using patoolib
     for zip_file in zip_files:
         zip_file_path = os.path.join(directory, zip_file)
+        extracted_file_path = os.path.splitext(zip_file_path)[0]  # Remove extension to get extracted file path
         try:
+            # Check if extracted file already exists
+            if os.path.exists(extracted_file_path):
+                os.remove(extracted_file_path)  # Remove the existing file
+
             patoolib.extract_archive(zip_file_path, outdir=directory)
             print(f"{zip_file} extracted successfully.")
         except patoolib.util.PatoolError as e:
             print(f"Error: Failed to extract {zip_file}: {e}")
-
 
 def read_credentials_from_config(filename='config.json'):
     """
