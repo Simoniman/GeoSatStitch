@@ -3,9 +3,10 @@ import datetime
 import himawari_api
 from himawari_api import download_latest_files
 import sys
-parent_dir = os.path.dirname(os.path.abspath('Himawari_Download.py')) # Get the parent directory of the current script
+parent_dir = os.path.dirname(os.path.abspath(__file__)) # Get the parent directory of the current script
 parent_dir = os.path.abspath(os.path.join(parent_dir, ".."))  # Go up one level
 sys.path.append(parent_dir) # Add the parent directory to the Python path
+
 
 
 from utils import extract_zip_files
