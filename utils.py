@@ -93,12 +93,14 @@ def geo_area_def(scene):
     
     # Dictionary mapping platform names to corresponding AreaDefinition objects. 
     geo_area_defs = {
-        'Goes_West': create_area_def('Goes_West', web_mercator_180deg, resolution=2000, area_extent=[-3338000, -11069000, 13360000, 11069000], units='meters'), #[+150, -70, -60, 70]
-        'Goes_East': create_area_def('Goes_East', web_mercator_default, resolution=2000, area_extent=[-16698000, -11069000, 0.0, 11069000], units='meters'), #[-150, -70, 0, 70]
-        'Meteo_Prime': create_area_def('Meteo_Prime', web_mercator_default, resolution=2000, area_extent=[-8350000, -11069000, 8350000, 11069000], units='meters'), #[-75, -70, 75, 70]
-        'Meteo_IndOcean': create_area_def('Meteo_IndOcean', web_mercator_default, resolution=2000, area_extent=[-3898000, -11069000, 12802000, 11069000], units='meters'), #[-35, -70, 115, 70]
-        'Himawari': create_area_def('Himawari', web_mercator_180deg, resolution=2000, area_extent=[-12802000, -11069000, 3898000, 11069000], units='meters') #[+65, -70, -145, 70]
+        'Goes_West': create_area_def('Goes_West', web_mercator_180deg, resolution=2000, area_extent=[-3338000, -12515600, 13360000, 12515600], units='meters'), #[+150, -74, -60, 74]
+        'Goes_East': create_area_def('Goes_East', web_mercator_default, resolution=2000, area_extent=[-16698000, -12515600, 0.0, 12515600], units='meters'), #[-150, -74, 0, 74]
+        'Meteo_Prime': create_area_def('Meteo_Prime', web_mercator_default, resolution=2000, area_extent=[-8350000, -12515600, 8350000, 12515600], units='meters'), #[-75, -74, 75, 74]
+        'Meteo_IndOcean': create_area_def('Meteo_IndOcean', web_mercator_default, resolution=2000, area_extent=[-3898000, -12515600, 12802000, 12515600], units='meters'), #[-35, -74, 115, 74]
+        'Himawari': create_area_def('Himawari', web_mercator_180deg, resolution=2000, area_extent=[-12802000, -12515600, 3898000, 12515600], units='meters') #[+65, -74, -145, 74]
     }
+
+
 
     # Check if there are any datasets in the scene directory
     available_dataset_names = scene.available_dataset_names()
