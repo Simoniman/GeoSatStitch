@@ -93,7 +93,7 @@ def geo_area_def(scene):
     
     # Dictionary mapping platform names to corresponding AreaDefinition objects. 
     geo_area_defs = {
-        'Goes_West': create_area_def('Goes_West', web_mercator_180deg, resolution=2000, area_extent=[-3338000, -12516000, 13360000, 12516000], units='meters'), #[+150, -74, -60, 74]
+        'Goes_West': create_area_def('Goes_West', web_mercator_180deg, resolution=2000, area_extent=[-4300000, -12516000, 14000000, 12516000], units='meters'), #[+150, -74, -60, 74]
         'Goes_East': create_area_def('Goes_East', web_mercator_default, resolution=2000, area_extent=[-17500000, -12516000, 800000.0, 12516000], units='meters'), #[-150, -74, 0, 74]
         'Meteo_Prime': create_area_def('Meteo_Prime', web_mercator_default, resolution=2000, area_extent=[-8350000, -12516000, 8350000, 12516000], units='meters'), #[-75, -74, 75, 74]
         'Meteo_IndOcean': create_area_def('Meteo_IndOcean', web_mercator_default, resolution=2000, area_extent=[-3400000, -12516000, 13500000, 12516000], units='meters'), #[-35, -74, 115, 74]
