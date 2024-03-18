@@ -51,4 +51,3 @@ def run_script_and_check(script_path, base_dir, channels, gradual_unzip=True, co
 def wait_function(counter_list):
     while len(counter_list) == 0:
         time.sleep(1)  # Wait for 1 second before checking again
-    print("Length of list is more than zero.")
